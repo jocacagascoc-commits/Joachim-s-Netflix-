@@ -1,0 +1,90 @@
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  /* Deep overlay ensures white text is always visible */
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
+              url('space-background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #ffffff;
+}
+
+/* Glass effect: Creates a blurred "shield" behind content */
+.container, .section-box, .card {
+  background: rgba(255, 255, 255, 0.1); 
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Adds a tiny shadow to letters */
+}
+
+header {
+  background: rgba(0, 0, 0, 0.85);
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #c0a080; /* Gold accent for premium feel */
+}
+
+nav a {
+  color: #e0e0e0;
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+nav a:hover {
+  color: #c0a080;
+}
+
+.card {
+  background: rgba(20, 20, 20, 0.6); /* Darker cards for item contrast */
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.card h3 {
+  margin: 10px 0;
+  color: #f0f0f0;
+}
+
+.price {
+  color: #8bc34a; /* Brighter green for readability on dark */
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: #c0a080; /* Warm coffee-gold color */
+  color: #000;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #d4b494;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #c0a080;
+  background: rgba(0,0,0,0.5);
+  color: white;
+}
+
+.hidden { display: none; }
+.center { text-align: center; }
+.container { padding: 40px 20px; max-width: 1000px; margin: auto; }
+</style>
