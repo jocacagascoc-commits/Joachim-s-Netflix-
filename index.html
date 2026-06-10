@@ -1,0 +1,305 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JOACHIM's Cafe</title><style>
+    /* Brighter background for specific content boxes to support black text */
+#aboutPage .section-box, 
+#contactPage .section-box, 
+#infoPage .section-box, 
+#ratePage .section-box {
+  background: rgba(255, 255, 255, 0.85); /* Much lighter glass */
+  color: #000000; /* Sets text to black */
+  text-shadow: none; /* Removes the white text shadow */
+}
+
+/* Ensures headings inside these sections are also black */
+#aboutPage h2, #contactPage h2, #infoPage h2, #ratePage h2,
+#aboutPage p, #contactPage p, #infoPage p, #ratePage p {
+  color: #000000;
+}
+
+/* Adjusts the rating dropdown and feedback text for visibility */
+#ratePage select, #ratePage textarea {
+  background: rgba(255, 255, 255, 0.9);
+  color: #000000;
+  border: 1px solid #1a1a1a;
+}
+
+    body {
+  margin: 0;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  /* Deep overlay ensures white text is always visible */
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
+              url('space-background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #ffffff;
+}
+
+/* Glass effect: Creates a blurred "shield" behind content */
+.container, .section-box, .card {
+  background: rgba(255, 255, 255, 0.1); 
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Adds a tiny shadow to letters */
+}
+
+header {
+  background: rgba(0, 0, 0, 0.85);
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #c0a080; /* Gold accent for premium feel */
+}
+
+nav a {
+  color: #e0e0e0;
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+nav a:hover {
+  color: #c0a080;
+}
+
+.card {
+  background: rgba(20, 20, 20, 0.6); /* Darker cards for item contrast */
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.card h3 {
+  margin: 10px 0;
+  color: #f0f0f0;
+}
+
+.price {
+  color: #8bc34a; /* Brighter green for readability on dark */
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: #c0a080; /* Warm coffee-gold color */
+  color: #000;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #d4b494;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #c0a080;
+  background: rgba(0,0,0,0.5);
+  color: white;
+}
+
+.hidden { display: none; }
+.center { text-align: center; }
+.container { padding: 40px 20px; max-width: 1000px; margin: auto; }
+
+body {
+  margin:0;
+  font-family: Arial, Helvetica, sans-serif;
+  /* Premium cafe look: warm-toned coffee image + subtle gradient */
+  background: linear-gradient(rgba(20,15,10,0.35), rgba(20,15,10,0.55)),
+              url('space-background.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* Glass effect for main containers */
+.container {
+  backdrop-filter: blur(8px);
+}
+
+.section-box, .card {
+  background: rgba(255,255,255,0.92);
+}
+
+header {
+  backdrop-filter: blur(10px);
+  background: rgba(31,31,31,0.9);
+}
+
+/* overlay for readability */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.65));
+  z-index: -1;
+}
+header { background:#1f1f1f; color:white; padding:15px; display:flex; justify-content:space-between; flex-wrap:wrap; }
+nav a { color:white; margin:0 8px; cursor:pointer; font-size:14px; }
+.container { padding:20px; }
+.grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:15px; }
+.card { background:white; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); overflow:hidden; }
+.card img { width:100%; height:150px; object-fit:cover; }
+.card-body { padding:10px; }
+.price { color:green; font-weight:bold; }
+button { width:100%; padding:8px; border:none; background:#1f1f1f; color:white; border-radius:5px; cursor:pointer; }
+.hidden { display:none; }
+.section-box { background:white; padding:20px; border-radius:10px; }
+.center { text-align:center; }
+</style></head><body>
+<header>
+<h2>JOACHIM's Cafe</h2>
+<nav>
+<a onclick="showPage('home')">Home</a>
+<a onclick="showPage('menu')">Menu</a>
+<a onclick="showPage('checkout')">Checkout</a>
+<a onclick="showPage('about')">About</a>
+<a onclick="showPage('contact')">Contact</a>
+<a onclick="showPage('info')">Info</a>
+<a onclick="showPage('rate')">Rate Us</a>
+</nav>
+</header><div class="container" id="homePage">
+<h2>Welcome to JOACHIM's Cafe</h2>
+<p>Experience premium coffee ordering online.</p>
+<button onclick="showPage('menu')">Start Ordering</button>
+</div><div class="container hidden" id="menuPage">
+<h2>Menu</h2>
+<div class="grid" id="menuItems"></div>
+</div><div class="container hidden" id="checkoutPage">
+<h2>Checkout</h2>
+<div id="orderList"></div>
+<h3 id="total"></h3><input placeholder="Your Name" id="name"><br><br> <input placeholder="Your Address" id="address"><br><br>
+
+<button onclick="placeOrder()">Place Order</button>
+
+</div><div class="container hidden" id="orderSuccessPage">
+<div class="section-box center">
+<h2>✅ Order Successful!</h2>
+<p>Your order has been placed successfully.</p>
+<button onclick="showPage('rate')">Rate Your Experience</button>
+<button onclick="showPage('home')">Back to Home</button>
+</div>
+</div><div class="container hidden" id="aboutPage">
+<div class="section-box">
+<h2>About Us</h2>
+<p>JOACHIM's Cafe is a premium coffee brand focused on delivering high-quality beverages and a modern digital ordering experience.</p>
+</div>
+</div><div class="container hidden" id="contactPage">
+<div class="section-box">
+<h2>Contact</h2>
+<p>Email: joachimcafe@email.com</p>
+<p>Phone: 0912-345-6789</p>
+<p>Location: Cagayan de Oro</p>
+</div>
+</div><div class="container hidden" id="infoPage">
+<div class="section-box">
+<h2>Information</h2>
+<p>Open Hours: 8:00 AM - 10:00 PM</p>
+<p>Delivery Time: 20-40 minutes</p>
+<p>Payment: Cash on Delivery</p>
+</div>
+</div><div class="container hidden" id="ratePage">
+<div class="section-box">
+<h2>Rate Us</h2>
+<p>How was your experience?</p>
+<select id="rating">
+<option>⭐</option>
+<option>⭐⭐</option>
+<option>⭐⭐⭐</option>
+<option>⭐⭐⭐⭐</option>
+<option>⭐⭐⭐⭐⭐</option>
+</select><br><br>
+<textarea id="feedback" placeholder="Write your feedback..."></textarea><br><br>
+<button onclick="submitRating()">Submit</button>
+</div>
+</div><div class="container hidden" id="thankYouPage">
+<div class="section-box center">
+<h2>🙏 Thank You!</h2>
+<p>Your feedback has been submitted.</p>
+<button onclick="showPage('home')">Back to Home</button>
+</div>
+</div><script>
+const menu = [
+{name:"Espresso Deluxe", price:120, img:"cafe1.jpg"},
+{name:"Cappuccino Supreme", price:150, img:"cafe2.jpg"},
+{name:"Caramel Macchiato", price:160, img:"cafe3.jpg"},
+{name:"Mocha Bliss", price:155, img:"cafe4.jpg"},
+{name:"Vanilla Latte", price:140, img:"cafe5.jpg"},
+{name:"Hazelnut Coffee", price:145, img:"cafe6.jpg"},
+{name:"Iced Americano", price:130, img:"cafe7.jpg"},
+{name:"Cold Brew Premium", price:165, img:"cafe8.jpg"},
+{name:"Matcha Latte", price:170, img:"cafe9.jpg"},
+{name:"Chocolate Frappe", price:180, img:"cafe10.jpg"}
+];
+
+let cart = [];
+
+function showPage(page){
+const pages = ['home','menu','checkout','about','contact','info','rate','orderSuccess','thankYou'];
+pages.forEach(p=> document.getElementById(p+'Page').classList.add('hidden'));
+
+document.getElementById(page+'Page').classList.remove('hidden');
+if(page==='checkout') renderCheckout();
+}
+
+function renderMenu(){
+const container = document.getElementById('menuItems');
+container.innerHTML="";
+menu.forEach((item,index)=>{
+container.innerHTML += `
+<div class="card">
+<img src="${item.img}">
+<div class="card-body">
+<h3>${item.name}</h3>
+<div class="price">₱${item.price}</div>
+<button onclick="addToCart(${index})">Add to Cart</button>
+</div>
+</div>`;
+});
+}
+
+function addToCart(index){
+cart.push(menu[index]);
+showPage('checkout');
+}
+
+function renderCheckout(){
+const list = document.getElementById('orderList');
+list.innerHTML="";
+let total = 0;
+cart.forEach(item=>{
+total += item.price;
+list.innerHTML += `<p>${item.name} - ₱${item.price}</p>`;
+});
+document.getElementById('total').innerText = "Total: ₱" + total;
+}
+
+function placeOrder(){
+const name = document.getElementById('name').value;
+const address = document.getElementById('address').value;
+
+if(!name || !address){ alert("Fill all fields"); return; }
+
+cart=[];
+showPage('orderSuccess');
+}
+
+function submitRating(){
+showPage('thankYou');
+}
+
+renderMenu();
+</script></body>
+</html>
