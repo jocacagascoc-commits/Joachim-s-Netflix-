@@ -4,7 +4,7 @@ body {
   font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   /* Deep overlay ensures white text is always visible */
   background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
-              url('space-background.jpg') no-repeat center center fixed;
+              url('space-background.png') no-repeat center center fixed;
   background-size: cover;
   color: #ffffff;
 }
